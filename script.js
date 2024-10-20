@@ -77,6 +77,9 @@ class PageManager {
 
     // submit時の処理
     handleSubmit() {
+        if (!this.isValid()) {
+            return;
+        }
         const outputContent = this.originalContent
             .split("\n")
             .map((line) => {
@@ -99,6 +102,10 @@ class PageManager {
             .join("\n");
 
         this.createDownloadLink(outputContent);
+    }
+
+    isValid() {
+        return this.formContainer.reportValidity();
     }
     // ダウンロードリンクを作成
     createDownloadLink(content) {
