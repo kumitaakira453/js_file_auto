@@ -34,7 +34,9 @@ class PageManager {
         const reader = new FileReader();
         reader.onload = (e) => {
             this.originalContent = e.target.result; // 元のファイル内容を保持
+            this.disposeForm();
             this.generateForm();
+            document.querySelector("#fileInputLabel").innerHTML = this.fileName;
         };
         reader.readAsText(file);
     }
@@ -68,13 +70,21 @@ class PageManager {
         }
         inputField.classList.add("inputField", "form-group");
         inputField.innerHTML = `
-            <label  for="${key}">${key}:</label>
-            <input type="text" class="form-control" id="${key}" value="${defaultValue}" required/>
+        <label  for="${key}">${key}:</label>
+        <input type="text" class="form-control" id="${key}" value="${defaultValue}" required/>
         `;
         this.inputs.push(key);
         this.formContainer.appendChild(inputField);
     }
 
+    disposeForm() {
+        const inputFields = this.formContainer.querySelectorAll("input");
+        if (inputFields) {
+            inputFields.forEach((inputField) => {
+                inputField.remove();
+            });
+        }
+    }
     // submit時の処理
     handleSubmit() {
         if (!this.isFormValid()) {
