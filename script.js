@@ -77,7 +77,7 @@ class PageManager {
 
     // submit時の処理
     handleSubmit() {
-        if (!this.isValid()) {
+        if (!this.isFormValid()) {
             return;
         }
         const outputContent = this.originalContent
@@ -104,7 +104,7 @@ class PageManager {
         this.createDownloadLink(outputContent);
     }
 
-    isValid() {
+    isFormValid() {
         return this.formContainer.reportValidity();
     }
     // ダウンロードリンクを作成
