@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算機工学Form</title>
+    <!-- Bootstrap CSSの読み込み -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #formContainer {
+            display: none;
+            /* 初期状態で非表示 */
+            margin-top: 20px;
+        }
+
+        #downloadBtn {
+            display: none;
+            /* 初期状態で非表示 */
+            margin-top: 20px;
+        }
+
+        .custom-file-label::after {
+            content: "選択";
+        }
+    </style>
+</head>
+
+<body class="container mt-4">
+
+    <h1 class="text-center">計算機工学Form</h1>
+    <div class="form-group">
+        <label for="fileInput">File input</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="fileInput" accept=".txt">
+            <label class="custom-file-label" for="inputFile">ファイルを選択してください</label>
+        </div>
+    </div>
+
+    <div id="formContainer" class="mt-3"></div>
+
+    <button id="submitBtn" class="btn btn-primary" style="display:none;width:100%;margin-bottom:20px">保存</button>
+    <a id="downloadBtn" href="#" class="btn btn-success" style="display:none;margin-bottom:50px">ダウンロード</a>
+
+    <script src="./script.js"></script>
+
+    <!-- Bootstrap JSと依存関係の読み込み -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
