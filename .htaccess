@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Input your ID and Password."
-AuthUserFile /home/kumitaakira453.github.io/js_file_auto/.htpasswd
-require valid-user
