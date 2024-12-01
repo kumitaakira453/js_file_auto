@@ -8,6 +8,19 @@ document.addEventListener("DOMContentLoaded", () => {
     pageManager.init();
 });
 
+window.addEventListener("beforeunload", (event) => {
+    // カスタムメッセージは一部のブラウザでは表示されません
+    const message =
+        "このページを離れると、変更内容が保存されない可能性があります。";
+
+    // このプロパティの設定により、警告ダイアログが表示されます
+    event.preventDefault();
+    event.returnValue = message;
+
+    // 互換性のため、明示的に return する
+    return message;
+});
+
 class PageManager {
     constructor(fileInputId, formContainerId, submitBtnId, downloadBtnId) {
         this.fileInput = document.getElementById(fileInputId);
